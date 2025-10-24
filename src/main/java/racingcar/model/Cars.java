@@ -23,11 +23,8 @@ public class Cars {
         cars.forEach(car -> car.move(moveStrategy));
     }
 
-    public void printCurrentRacing() {
-        cars.forEach(
-                car -> System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()))
-        );
-        System.out.println();
+    public List<Car> getCars() {
+        return cars;
     }
 
     public List<Car> getWinner() {

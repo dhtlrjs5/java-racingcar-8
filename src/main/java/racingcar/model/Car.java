@@ -26,10 +26,6 @@ public class Car {
         }
     }
 
-    /**
-     * getter, setter를 사용했는가? 에 위반
-     * 추후 DTO로 처리?
-     */
     public String getName() {
         return name;
     }

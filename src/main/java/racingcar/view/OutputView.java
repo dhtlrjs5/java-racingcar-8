@@ -10,12 +10,19 @@ public class OutputView {
     private static final String NAME_POSITION_DELIMITER = " : ";
     private static final String FINAL_WINNER_MESSAGE = "최종 우승자" + NAME_POSITION_DELIMITER;
 
-    public void outputResultMessage() {
+    public void outputResult() {
         System.out.println();
         System.out.println(RESULT_MESSAGE);
     }
 
-    public void outputFinalWinnerMessage(List<Car> winners) {
+    public void outputCurrentResult(List<Car> cars) {
+        cars.forEach(
+                car -> System.out.println(car.getName() + NAME_POSITION_DELIMITER + "-".repeat(car.getPosition()))
+        );
+        System.out.println();
+    }
+
+    public void outputFinalWinner(List<Car> winners) {
         List<String> carNameList = toCarNameList(winners);
 
         System.out.println(FINAL_WINNER_MESSAGE + String.join(", ", carNameList));
