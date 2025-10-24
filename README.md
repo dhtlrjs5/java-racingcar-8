@@ -21,7 +21,7 @@
 - [x] 자동차 이름을 `,`를 기준으로 입력 받는 기능
 - [x] 시도 횟수 입력 안내 문구 출력
 - [x] 시도 횟수를 입력 받는 기능
-- [ ] 예외 처리 기능 -> `IllegalArgumentException`
+- [x] 예외 처리 기능 -> `IllegalArgumentException`
   - [x] 자동차 이름이 중복일 때
   - [x] 시도 횟수가 음수일 때
 
