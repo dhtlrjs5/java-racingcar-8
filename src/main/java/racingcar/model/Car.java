@@ -1,23 +1,21 @@
 package racingcar.model;
 
-import racingcar.utils.RandomNumberGenerator;
+import racingcar.move_strategy.MoveStrategy;
 
 public class Car {
 
     private static final String NAME_LENGTH_ERROR_MESSAGE = "자동차 이름은 1~5자 이내여야 합니다.";
 
     private final String name;
-    private final RandomNumberGenerator randomNumberGenerator;
     private int position = 0;
 
-    public Car(String name, RandomNumberGenerator randomNumberGenerator) {
+    public Car(String name) {
         validateName(name);
-        this.randomNumberGenerator = randomNumberGenerator;
         this.name = name;
     }
 
-    public void move() {
-        if (randomNumberGenerator.canMove()) {
+    public void move(MoveStrategy moveStrategy) {
+        if (moveStrategy.isMovable()) {
             position++;
         }
     }
@@ -34,5 +32,9 @@ public class Car {
      */
     public String getName() {
         return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
