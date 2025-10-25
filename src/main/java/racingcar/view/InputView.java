@@ -22,6 +22,10 @@ public class InputView {
         System.out.println(INPUT_ATTEMPT_COUNT_MESSAGE);
         String attempts = Console.readLine();
 
+        return convertAttempt(attempts);
+    }
+
+    private int convertAttempt(String attempts) {
         try {
             return Integer.parseInt(attempts);
         } catch (NumberFormatException e) {

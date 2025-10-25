@@ -17,7 +17,7 @@ public class OutputView {
 
     public void outputCurrentResult(List<Car> cars) {
         cars.forEach(
-                car -> System.out.println(car.getName() + NAME_POSITION_DELIMITER + "-".repeat(car.getPosition()))
+                car -> System.out.println(car.getRepresentation())
         );
         System.out.println();
     }

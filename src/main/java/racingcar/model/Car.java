@@ -4,6 +4,7 @@ import racingcar.move_strategy.MoveStrategy;
 
 public class Car {
 
+    private static final String NAME_POSITION_DELIMITER = " : ";
     private static final String NAME_LENGTH_ERROR_MESSAGE = "자동차 이름은 1~5자 이내여야 합니다.";
 
     private final String name;
@@ -24,6 +25,10 @@ public class Car {
         if (name.isEmpty() || name.length() > 5) {
             throw new IllegalArgumentException(NAME_LENGTH_ERROR_MESSAGE);
         }
+    }
+
+    public String getRepresentation() {
+        return name + NAME_POSITION_DELIMITER + "-".repeat(position);
     }
 
     public String getName() {
