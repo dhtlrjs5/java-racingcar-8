@@ -2,10 +2,9 @@ package racingcar.random_number;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RandomNumberGenerator implements RandomNumber {
+import static racingcar.utils.Constants.*;
 
-    private static final int MIN_RANDOM_NUMBER = 0;
-    private static final int MAX_RANDOM_NUMBER = 9;
+public class RandomNumberGenerator implements RandomNumber {
 
     @Override
     public int generate() {

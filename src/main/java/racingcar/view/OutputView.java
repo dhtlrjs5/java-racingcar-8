@@ -4,11 +4,9 @@ import racingcar.model.Car;
 
 import java.util.List;
 
-public class OutputView {
+import static racingcar.utils.Constants.*;
 
-    private static final String RESULT_MESSAGE = "실행 결과";
-    private static final String NAME_POSITION_DELIMITER = " : ";
-    private static final String FINAL_WINNER_MESSAGE = "최종 우승자" + NAME_POSITION_DELIMITER;
+public class OutputView {
 
     public void outputResult() {
         System.out.println();
@@ -25,7 +23,7 @@ public class OutputView {
     public void outputFinalWinner(List<Car> winners) {
         List<String> carNameList = toCarNameList(winners);
 
-        System.out.println(FINAL_WINNER_MESSAGE + String.join(", ", carNameList));
+        System.out.println(FINAL_WINNER_MESSAGE_PREFIX + String.join(", ", carNameList));
     }
 
     private List<String> toCarNameList(List<Car> carList) {

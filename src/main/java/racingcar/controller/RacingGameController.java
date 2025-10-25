@@ -5,9 +5,9 @@ import racingcar.move_strategy.MoveStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RacingGameController {
+import static racingcar.utils.Constants.ERROR_ATTEMPT_COUNT_NEGATIVE_MESSAGE;
 
-    private static final String ATTEMPT_COUNT_NEGATIVE_ERROR_MESSAGE = "시도 횟수는 0이상 이여야 합니다.";
+public class RacingGameController {
 
     private final InputView inputView;
     private final OutputView outputView;
@@ -36,7 +36,7 @@ public class RacingGameController {
 
     private void validateAttempts(int attempts) {
         if (isNegativeNumber(attempts)) {
-            throw new IllegalArgumentException(ATTEMPT_COUNT_NEGATIVE_ERROR_MESSAGE);
+            throw new IllegalArgumentException(ERROR_ATTEMPT_COUNT_NEGATIVE_MESSAGE);
         }
     }
 

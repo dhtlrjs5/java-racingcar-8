@@ -2,9 +2,9 @@ package racingcar.move_strategy;
 
 import racingcar.random_number.RandomNumber;
 
-public class RandomMoveStrategy implements MoveStrategy {
+import static racingcar.utils.Constants.MOVE_THRESHOLD;
 
-    private static final int MOVING_THRESHOLD = 4;
+public class RandomMoveStrategy implements MoveStrategy {
 
     private final RandomNumber randomNumber;
 
@@ -14,6 +14,6 @@ public class RandomMoveStrategy implements MoveStrategy {
 
     @Override
     public boolean isMovable() {
-        return randomNumber.generate() >= MOVING_THRESHOLD;
+        return randomNumber.generate() >= MOVE_THRESHOLD;
     }
 }

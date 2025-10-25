@@ -2,10 +2,9 @@ package racingcar.model;
 
 import racingcar.move_strategy.MoveStrategy;
 
-public class Car {
+import static racingcar.utils.Constants.*;
 
-    private static final String NAME_POSITION_DELIMITER = " : ";
-    private static final String NAME_LENGTH_ERROR_MESSAGE = "자동차 이름은 1~5자 이내여야 합니다.";
+public class Car {
 
     private final String name;
     private int position = 0;
@@ -22,8 +21,8 @@ public class Car {
     }
 
     private void validateName(String name) {
-        if (name.isEmpty() || name.length() > 5) {
-            throw new IllegalArgumentException(NAME_LENGTH_ERROR_MESSAGE);
+        if (name.isEmpty() || name.length() > NAME_MAX_LENGTH) {
+            throw new IllegalArgumentException(NAME_LENGTH_ERROR_MESSAGE_MESSAGE);
         }
     }
 

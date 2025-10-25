@@ -5,9 +5,9 @@ import racingcar.move_strategy.MoveStrategy;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Cars {
+import static racingcar.utils.Constants.ERROR_DUPLICATE_NAME_MESSAGE;
 
-    private static final String DUPLICATE_NAME_ERROR_MESSAGE = "중복된 자동차 이름이 있습니다.";
+public class Cars {
 
     private final List<Car> cars;
 
@@ -52,7 +52,7 @@ public class Cars {
                 .count();
 
         if (distinctSize != carNames.size()) {
-            throw new IllegalArgumentException(DUPLICATE_NAME_ERROR_MESSAGE);
+            throw new IllegalArgumentException(ERROR_DUPLICATE_NAME_MESSAGE);
         }
     }
 }
