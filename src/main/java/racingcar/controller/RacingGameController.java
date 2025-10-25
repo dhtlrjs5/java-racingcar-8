@@ -20,21 +20,35 @@ public class RacingGameController {
     }
 
     public void run() {
-        Cars cars = Cars.createCars(inputView.inputCarNames());
-        int attempts = inputView.inputAttemptCount();
+        Cars cars = initializeCars();
+        int attempts = inputAttempts();
 
+        outputView.outputResult();
+        startRacing(cars, attempts);
+        outputView.outputFinalWinner(cars.getWinner());
+    }
+
+    private int inputAttempts() {
+        int attempts = inputView.inputAttemptCount();
+        validateAttempts(attempts);
+        return attempts;
+    }
+
+    private void validateAttempts(int attempts) {
         if (isNegativeNumber(attempts)) {
             throw new IllegalArgumentException(ATTEMPT_COUNT_NEGATIVE_ERROR_MESSAGE);
         }
+    }
 
-        outputView.outputResult();
+    private Cars initializeCars() {
+        return Cars.createCars(inputView.inputCarNames());
+    }
 
+    private void startRacing(Cars cars, int attempts) {
         for (int i = 0; i < attempts; i++) {
             cars.playRacing(moveStrategy);
             outputView.outputCurrentResult(cars.getCars());
         }
-
-        outputView.outputFinalWinner(cars.getWinner());
     }
 
     private boolean isNegativeNumber(int number) {
