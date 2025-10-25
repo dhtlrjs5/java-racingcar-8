@@ -40,5 +40,5 @@ public final class Constants {
     public static final String ERROR_ATTEMPT_COUNT_NEGATIVE_MESSAGE = ERROR_PREFIX + "시도 횟수는 0이상 이여야 합니다.";
 
     // InputView.java
-    public static final String ERROR_INPUT_MUST_BE_A_NUMBER_MESSAGE = ERROR_PREFIX + "시도 횟수는 숫자만 입력 가능합니다.";
+    public static final String ERROR_INPUT_MUST_BE_A_NUMBER_MESSAGE = ERROR_PREFIX + "시도 횟수는 Integer.MAX_VALUE 이하의 양수만 입력 가능합니다.";
 }
