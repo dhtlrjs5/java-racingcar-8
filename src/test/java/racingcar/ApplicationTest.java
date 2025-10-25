@@ -78,8 +78,10 @@ class ApplicationTest extends NsTest {
     @Test
     @DisplayName("시도 횟수가 빈 값이면 예외 발생")
     void throwExceptionWhenAttemptIsEmpty() {
-        assertThatThrownBy(() -> runException("pobi,woni,jun", ""))
-                .isInstanceOf(IllegalArgumentException.class);
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni,jun", "\n"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
     @Test
