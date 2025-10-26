@@ -39,14 +39,14 @@ public class Cars {
 
         return cars.stream()
                 .map(Car::toDto)
-                .filter(car -> car.getPosition() == maxPosition)
+                .filter(car -> car.position() == maxPosition)
                 .collect(Collectors.toList());
     }
 
     private int getMaxPosition() {
         return cars.stream()
                 .map(Car::toDto)
-                .mapToInt(CarDto::getPosition)
+                .mapToInt(CarDto::position)
                 .max()
                 .orElse(0);
     }

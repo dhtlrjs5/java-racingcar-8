@@ -15,7 +15,7 @@ public class OutputView {
 
     public void outputCurrentResult(List<CarDto> cars) {
         cars.forEach(
-                car -> System.out.println(car.getRepresentation())
+                this::carRepresentation
         );
         System.out.println();
     }
@@ -28,7 +28,11 @@ public class OutputView {
 
     private List<String> toCarNameList(List<CarDto> carList) {
         return carList.stream()
-                .map(CarDto::getName)
+                .map(CarDto::name)
                 .toList();
+    }
+
+    private void carRepresentation(CarDto car) {
+        System.out.println(car.name() + NAME_POSITION_DELIMITER + "-".repeat(car.position()));
     }
 }

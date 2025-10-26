@@ -18,8 +18,8 @@ class CarTest {
         //when
 
         //then
-        assertThat(carDto.getName()).isEqualTo("car");
-        assertThat(carDto.getPosition()).isEqualTo(0);
+        assertThat(carDto.name()).isEqualTo("car");
+        assertThat(carDto.position()).isEqualTo(0);
     }
 
     @Test
@@ -33,7 +33,7 @@ class CarTest {
         CarDto carDto = car.toDto();
 
         //then
-        assertThat(carDto.getPosition()).isEqualTo(1);
+        assertThat(carDto.position()).isEqualTo(1);
     }
 
     @Test
@@ -47,7 +47,7 @@ class CarTest {
         CarDto carDto = car.toDto();
 
         //then
-        assertThat(carDto.getPosition()).isEqualTo(0);
+        assertThat(carDto.position()).isEqualTo(0);
     }
 
     @Test

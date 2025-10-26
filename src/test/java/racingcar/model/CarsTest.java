@@ -22,8 +22,8 @@ class CarsTest {
 
         //then
         assertThat(carList.size()).isEqualTo(4);
-        assertThat(carList.getFirst().getName()).isEqualTo("Car1");
-        assertThat(carList.getLast().getName()).isEqualTo("Car4");
+        assertThat(carList.getFirst().name()).isEqualTo("Car1");
+        assertThat(carList.getLast().name()).isEqualTo("Car4");
     }
 
     @Test
@@ -42,7 +42,7 @@ class CarsTest {
 
         //then
         assertThat(winner.size()).isEqualTo(1);
-        assertThat(winner.getFirst().getName()).isEqualTo("Car1");
+        assertThat(winner.getFirst().name()).isEqualTo("Car1");
     }
 
     @Test
@@ -62,7 +62,7 @@ class CarsTest {
         //then
         assertThat(winners.size()).isEqualTo(3);
         assertThat(winners)
-                .extracting(CarDto::getName)
+                .extracting(CarDto::name)
                 .containsExactlyInAnyOrder("Car2", "Car3", "Car4");
     }
 
