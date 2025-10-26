@@ -53,3 +53,6 @@
 | 🚫 중복 이름      | pobi,pobi,jun / 5 | 중복된 이름 존재      | `IllegalArgumentException` 발생        |
 | 🚫 시도 횟수 음수  | pobi,woni / -2      | 음수 입력          | `IllegalArgumentException` 발생  |
 | 🚫 시도 횟수 문자  | pobi,woni / abc     | 숫자가 아님         | `IllegalArgumentException` 발생 |
+
+## 프로젝트 구조
+![프로젝트 구조](images/diagram.png)
