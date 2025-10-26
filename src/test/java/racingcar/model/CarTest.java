@@ -13,13 +13,12 @@ class CarTest {
     void newCarTest() {
         //given
         Car car = new Car("car");
-        CarDto carDto = car.toDto();
 
         //when
 
         //then
-        assertThat(carDto.name()).isEqualTo("car");
-        assertThat(carDto.position()).isEqualTo(0);
+        assertThat(car.getName()).isEqualTo("car");
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @Test
@@ -30,10 +29,9 @@ class CarTest {
 
         //when
         car.move(() -> true);
-        CarDto carDto = car.toDto();
 
         //then
-        assertThat(carDto.position()).isEqualTo(1);
+        assertThat(car.getPosition()).isEqualTo(1);
     }
 
     @Test
@@ -44,10 +42,9 @@ class CarTest {
 
         //when
         car.move(() -> false);
-        CarDto carDto = car.toDto();
 
         //then
-        assertThat(carDto.position()).isEqualTo(0);
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @Test

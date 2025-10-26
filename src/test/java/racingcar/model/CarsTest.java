@@ -16,14 +16,14 @@ class CarsTest {
     void newCarsTest() {
         //given
         Cars cars = Cars.createCars(List.of("Car1", "Car2", "Car3", "Car4"));
-        List<CarDto> carList = cars.getCars();
+        List<Car> carList = cars.getCars();
 
         //when
 
         //then
         assertThat(carList.size()).isEqualTo(4);
-        assertThat(carList.getFirst().name()).isEqualTo("Car1");
-        assertThat(carList.getLast().name()).isEqualTo("Car4");
+        assertThat(carList.getFirst().getName()).isEqualTo("Car1");
+        assertThat(carList.getLast().getName()).isEqualTo("Car4");
     }
 
     @Test
@@ -38,11 +38,11 @@ class CarsTest {
             int winnerNumber = incrementNumber.getAndIncrement();
             return winnerNumber == 0;
         });
-        List<CarDto> winner = cars.getWinner();
+        List<Car> winner = cars.getWinner();
 
         //then
         assertThat(winner.size()).isEqualTo(1);
-        assertThat(winner.getFirst().name()).isEqualTo("Car1");
+        assertThat(winner.getFirst().getName()).isEqualTo("Car1");
     }
 
     @Test
@@ -57,12 +57,12 @@ class CarsTest {
             int winnerNumber = incrementNumber.getAndIncrement();
             return winnerNumber != 0;
         });
-        List<CarDto> winners = cars.getWinner();
+        List<Car> winners = cars.getWinner();
 
         //then
         assertThat(winners.size()).isEqualTo(3);
         assertThat(winners)
-                .extracting(CarDto::name)
+                .extracting(Car::getName)
                 .containsExactlyInAnyOrder("Car2", "Car3", "Car4");
     }
 

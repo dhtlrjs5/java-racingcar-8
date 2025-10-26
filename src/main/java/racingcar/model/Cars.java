@@ -1,8 +1,8 @@
 package racingcar.model;
 
-import racingcar.dto.CarDto;
 import racingcar.move_strategy.MoveStrategy;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,25 +28,21 @@ public class Cars {
         cars.forEach(car -> car.move(moveStrategy));
     }
 
-    public List<CarDto> getCars() {
-        return cars.stream()
-                .map(Car::toDto)
-                .collect(Collectors.toList());
+    public List<Car> getCars() {
+        return new ArrayList<>(cars);
     }
 
-    public List<CarDto> getWinner() {
+    public List<Car> getWinner() {
         int maxPosition = getMaxPosition();
 
         return cars.stream()
-                .map(Car::toDto)
-                .filter(car -> car.position() == maxPosition)
+                .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
     }
 
     private int getMaxPosition() {
         return cars.stream()
-                .map(Car::toDto)
-                .mapToInt(CarDto::position)
+                .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
     }

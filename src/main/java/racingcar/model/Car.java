@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import racingcar.dto.CarDto;
 import racingcar.move_strategy.MoveStrategy;
 
 import static racingcar.utils.Constants.*;
@@ -15,8 +14,12 @@ public class Car {
         this.name = name;
     }
 
-    public CarDto toDto() {
-        return new CarDto(name, position);
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     public void move(MoveStrategy moveStrategy) {
