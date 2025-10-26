@@ -2,6 +2,7 @@ package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.dto.CarDto;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -15,7 +16,7 @@ class CarsTest {
     void newCarsTest() {
         //given
         Cars cars = Cars.createCars(List.of("Car1", "Car2", "Car3", "Car4"));
-        List<Car> carList = cars.getCars();
+        List<CarDto> carList = cars.getCars();
 
         //when
 
@@ -37,7 +38,7 @@ class CarsTest {
             int winnerNumber = incrementNumber.getAndIncrement();
             return winnerNumber == 0;
         });
-        List<Car> winner = cars.getWinner();
+        List<CarDto> winner = cars.getWinner();
 
         //then
         assertThat(winner.size()).isEqualTo(1);
@@ -56,12 +57,12 @@ class CarsTest {
             int winnerNumber = incrementNumber.getAndIncrement();
             return winnerNumber != 0;
         });
-        List<Car> winners = cars.getWinner();
+        List<CarDto> winners = cars.getWinner();
 
         //then
         assertThat(winners.size()).isEqualTo(3);
         assertThat(winners)
-                .extracting(Car::getName)
+                .extracting(CarDto::getName)
                 .containsExactlyInAnyOrder("Car2", "Car3", "Car4");
     }
 

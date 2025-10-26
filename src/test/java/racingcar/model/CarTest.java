@@ -2,6 +2,7 @@ package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.dto.CarDto;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -12,12 +13,13 @@ class CarTest {
     void newCarTest() {
         //given
         Car car = new Car("car");
+        CarDto carDto = car.toDto();
 
         //when
 
         //then
-        assertThat(car.getName()).isEqualTo("car");
-        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(carDto.getName()).isEqualTo("car");
+        assertThat(carDto.getPosition()).isEqualTo(0);
     }
 
     @Test
@@ -28,9 +30,10 @@ class CarTest {
 
         //when
         car.move(() -> true);
+        CarDto carDto = car.toDto();
 
         //then
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(carDto.getPosition()).isEqualTo(1);
     }
 
     @Test
@@ -41,9 +44,10 @@ class CarTest {
 
         //when
         car.move(() -> false);
+        CarDto carDto = car.toDto();
 
         //then
-        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(carDto.getPosition()).isEqualTo(0);
     }
 
     @Test

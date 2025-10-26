@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.dto.CarDto;
 import racingcar.move_strategy.MoveStrategy;
 
 import java.util.List;
@@ -27,21 +28,25 @@ public class Cars {
         cars.forEach(car -> car.move(moveStrategy));
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public List<CarDto> getCars() {
+        return cars.stream()
+                .map(Car::toDto)
+                .collect(Collectors.toList());
     }
 
-    public List<Car> getWinner() {
+    public List<CarDto> getWinner() {
         int maxPosition = getMaxPosition();
 
         return cars.stream()
-                .filter(cars -> cars.getPosition() == maxPosition)
+                .map(Car::toDto)
+                .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
     }
 
     private int getMaxPosition() {
         return cars.stream()
-                .mapToInt(Car::getPosition)
+                .map(Car::toDto)
+                .mapToInt(CarDto::getPosition)
                 .max()
                 .orElse(0);
     }
